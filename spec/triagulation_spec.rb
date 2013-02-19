@@ -46,6 +46,20 @@ describe Triangulation do
   end
   
   describe 'obtuse?' do
+		it "will be true if one of the angles is greater than ninty" do
+			triangle = Triangulation.new(Point.new(0,1), Point.new(3,0), Point.new(5,0))
+			triangle.obtuse?.should == true
+		end
+
+		it "will not be true if one of the angles is right " do
+			triangle = Triangulation.new(Point.new(0,0), Point.new(0,1), Point.new(1,0))
+		  triangle.obtuse?.should == false
+		end
+
+		it "will not be true if the angles are acute" do
+			triangle = Triangulation.new(Point.new(0,0), Point.new(0,8), Point.new(9,3))
+		  triangle.obtuse?.should == false
+		end		
   end
   
   describe 'acute?' do
