@@ -10,6 +10,11 @@ class Triangulation
   def valid?
     !in_a_line?
   end
+
+	def right?
+		angles = Angle.new(first_point, second_point, third_point).calculate
+		angles.include?(90)		
+	end
   
   def in_a_line?
     lengths = [
