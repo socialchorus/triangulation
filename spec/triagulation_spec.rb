@@ -40,7 +40,7 @@ describe Triangulation do
 		end
 
     it "will not be true if the none of the angles is a right angle" do
-			triangle = Triangulation.new(Point.new(0,0), Point.new(4,0), Point.new(1,3))
+      triangle = Triangulation.new(Point.new(0,1), Point.new(3,0), Point.new(5,0))
 			triangle.right?.should == false
 		end
   end
@@ -63,6 +63,20 @@ describe Triangulation do
   end
   
   describe 'acute?' do
+	  it "will  be true if the angles are acute" do
+      triangle = Triangulation.new(Point.new(0,0), Point.new(0,8), Point.new(9,3))
+      triangle.acute?.should == true
+    end
+
+	  it "will not be true if one of the angles is right " do
+      triangle = Triangulation.new(Point.new(0,0), Point.new(0,1), Point.new(1,0))
+      triangle.acute?.should == false
+    end
+
+	  it "will be true if one of the angles is greater than ninty" do
+      triangle = Triangulation.new(Point.new(0,1), Point.new(3,0), Point.new(5,0))
+      triangle.acute?.should == false
+    end
   end
   
   describe 'report' do

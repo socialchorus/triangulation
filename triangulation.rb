@@ -21,6 +21,11 @@ class Triangulation
 		angles.last > 90
 	end
 
+	def acute?
+		angles = Angle.new(first_point, second_point, third_point).calculate
+		angles.last < 90
+	end
+
   def in_a_line?
     lengths = [
       Distance.new(first_point, second_point).calculate,
