@@ -4,7 +4,11 @@ require_relative "../triangulation"
 
 describe Triangulation do
   describe "valid?" do
-    it "will be true if the points are laid out in a triangle"
+    it "will be true if the points are laid out in a triangle" do
+      t1 = Triangulation.new([0, 4], [1, 5], [2, 6])
+      t1.valid?.should == true
+    end
+
     it "will be false if the points are not laid out in a triangle"
   end
   
